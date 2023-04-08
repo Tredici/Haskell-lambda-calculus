@@ -116,6 +116,9 @@ sum n m = reduceMany $ Apply (Apply sumLambda n) m
 mulLambda :: LambdaExpr
 mulLambda = Lambda "m" $ Lambda "n" $ Lambda "f" $(Apply (Name "m") $ (Apply (Name "n") $ Name "f"))
 
+powLambda :: LambdaExpr
+powLambda = Lambda "m" $ Lambda "n" $ Apply (Name "n") $ Name "m"
+
 printLambda :: LambdaExpr -> IO()
 printLambda = putStrLn . l2s
 
